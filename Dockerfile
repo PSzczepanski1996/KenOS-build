@@ -1,6 +1,6 @@
 FROM ubuntu
-ADD chain/binutils-2.32.tar.gz /root/src
-ADD chain/gcc-9.1.0.tar.gz /root/src
+ADD https://sunsite.icm.edu.pl/pub/gnu/binutils/binutils-2.33.1.tar.gz /root/src
+ADD https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.gz /root/src
 ENV TARGET=i686-elf \
     PREFIX=/opt/local \
     PATH="/opt/local/bin:${PATH}"
