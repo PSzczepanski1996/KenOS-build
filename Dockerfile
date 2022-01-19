@@ -1,6 +1,6 @@
 FROM ubuntu
-ADD chain/binutils-2.34.tar.gz /root/src
-ADD chain/gcc-9.3.0.tar.gz /root/src
+ADD chain/binutils-2.37.tar.gz /root/src
+ADD chain/gcc-11.2.0.tar.gz /root/src
 ENV TARGET=i686-elf \
     PREFIX=/opt/local \
     PATH="/opt/local/bin:${PATH}"
@@ -10,10 +10,10 @@ RUN apt-get update && apt-get -y upgrade; \
     apt-get -y install grub-common; \
     cd $HOME/src; \
     mkdir build-binutils && cd build-binutils; \
-    ../binutils-2.31.1/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --disable-werror; \
+    ../binutils-2.37/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --disable-werror; \
     make && make install; \
     cd $HOME/src && mkdir build-gcc && cd build-gcc; \
-    ../gcc-8.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --enable-languages=c,c++ --without-headers; \
+    ../gcc-11.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --enable-languages=c,c++ --without-headers; \
     make all-gcc; \
     make all-target-libgcc; \
     make install-gcc; \
