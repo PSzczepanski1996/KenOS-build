@@ -1,6 +1,6 @@
 FROM ubuntu
 WORKDIR /root/src
-ADD https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.gz /root/src/
+ADD https://ftp.gnu.org/gnu/binutils/binutils-2.38.tar.gz /root/src/
 ADD https://ftp.gnu.org/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.gz /root/src/
 ENV TARGET=i686-elf \
     PREFIX=/opt/local \
@@ -9,10 +9,10 @@ RUN apt-get update && apt-get -y upgrade; \
     apt-get -y install make nasm gcc g++ xorriso curl; \
     apt-get -y install libgmp-dev libmpfr-dev libmpc-dev; \
     apt-get -y install grub-common file; \
-    tar -xzvf binutils-2.37.tar.gz; \
+    tar -xzvf binutils-2.38.tar.gz; \
     tar -xzvf gcc-11.2.0.tar.gz; \
     mkdir build-binutils && cd build-binutils; \
-    ../binutils-2.37/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --disable-werror; \
+    ../binutils-2.38/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --disable-werror; \
     make && make install; \
     cd $HOME/src && mkdir build-gcc && cd build-gcc; \
     ../gcc-11.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --enable-languages=c,c++ --without-headers; \
