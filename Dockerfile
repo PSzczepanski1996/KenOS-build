@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:jammy
 WORKDIR /root/src
 ADD https://ftp.gnu.org/gnu/binutils/binutils-2.38.tar.gz /root/src/
 ADD https://ftp.gnu.org/gnu/gcc/gcc-11.3.0/gcc-11.3.0.tar.gz /root/src/
