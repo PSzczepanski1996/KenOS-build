@@ -5,9 +5,7 @@ ADD https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.gz /root/src/
 ENV TARGET=i686-elf \
     PREFIX=/root/opt/local \
     PATH="/root/opt/local/bin:${PATH}" \
-    JFLAG=1
 RUN export JFLAG=$(($(getconf _NPROCESSORS_ONLN) + 1)); \
-    echo $JFLAG; \
     apt-get update && apt-get -y upgrade; \
     apt-get -y install make nasm gcc g++ xorriso curl; \
     apt-get -y install libgmp-dev libmpfr-dev libmpc-dev; \
