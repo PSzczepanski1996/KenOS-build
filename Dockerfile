@@ -8,7 +8,7 @@ ENV TARGET=i686-elf \
 RUN apt-get update && apt-get -y upgrade; \
     apt-get -y install make nasm gcc g++ xorriso curl; \
     apt-get -y install libgmp-dev libmpfr-dev libmpc-dev; \
-    apt-get -y install grub-efi-ia32 grub-common file texinfo mtools; \
+    apt-get -y install grub-pc grub-common file texinfo mtools; \
     tar -xzvf binutils-2.39.tar.gz; \
     tar -xzvf gcc-12.1.0.tar.gz; \
     mkdir build-binutils && cd build-binutils; \
