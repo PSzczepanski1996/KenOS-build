@@ -8,3 +8,6 @@
 * nasm
 * grub-common
 * curl (for bitbucket pipelines)
+
+### Continous Integration:
+There is also configured CI system for automatic deployment to Docker Hub. Enjoy!
