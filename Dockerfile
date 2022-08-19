@@ -24,5 +24,5 @@ RUN apt-get update && apt-get -y upgrade; \
     apt-get -y autoremove; \
     apt-get -y autoclean; \
     apt-get -y clean; \
-    rm -rf /root/src
+    rm -rf /root/src; \
     echo 'export PATH=/root/opt/local' >> ~/.bashrc 
