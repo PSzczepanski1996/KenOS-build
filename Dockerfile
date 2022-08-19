@@ -4,7 +4,7 @@ ADD https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.gz /root/src/
 ADD https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.gz /root/src/
 ENV TARGET=i686-elf \
     PREFIX=/root/opt/local \
-    PATH="/root/opt/local/bin:${PATH}" \
+    PATH="/root/opt/local/bin:${PATH}"
 RUN export JFLAG=$(($(getconf _NPROCESSORS_ONLN) + 1)); \
     apt-get update && apt-get -y upgrade; \
     apt-get -y install make nasm gcc g++ xorriso curl; \
