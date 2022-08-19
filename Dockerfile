@@ -3,8 +3,8 @@ WORKDIR /root/src
 ADD https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.gz /root/src/
 ADD https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.gz /root/src/
 ENV TARGET=i686-elf \
-    PREFIX=/opt/local \
-    PATH="/opt/local/bin:${PATH}"
+    PREFIX=/root/opt/local \
+    PATH="/root/opt/local/bin:${PATH}"
 RUN apt-get update && apt-get -y upgrade; \
     apt-get -y install make nasm gcc g++ xorriso curl; \
     apt-get -y install libgmp-dev libmpfr-dev libmpc-dev; \
@@ -25,3 +25,4 @@ RUN apt-get update && apt-get -y upgrade; \
     apt-get -y autoclean; \
     apt-get -y clean; \
     rm -rf /root/src
+    echo 'export PATH=/root/opt/local' >> ~/.bashrc 
