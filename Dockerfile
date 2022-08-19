@@ -7,6 +7,7 @@ ENV TARGET=i686-elf \
     PATH="/root/opt/local/bin:${PATH}" \
     JFLAG=1
 RUN export JFLAG=$(($(getconf _NPROCESSORS_ONLN) + 1)); \
+    echo $JFLAG; \
     apt-get update && apt-get -y upgrade; \
     apt-get -y install make nasm gcc g++ xorriso curl; \
     apt-get -y install libgmp-dev libmpfr-dev libmpc-dev; \
