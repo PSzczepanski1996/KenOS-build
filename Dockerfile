@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y upgrade; \
     apt-get -y install libgmp-dev libmpfr-dev libmpc-dev; \
     apt-get -y install grub-pc grub-common file texinfo mtools; \
     tar -xzvf binutils-2.39.tar.gz; \
-    tar -xzvf gcc-12.1.0.tar.gz; \
+    tar -xzvf gcc-12.2.0.tar.gz; \
     mkdir build-binutils && cd build-binutils; \
     ../binutils-2.39/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --disable-werror; \
     make -j$(nproc) && make install; \
