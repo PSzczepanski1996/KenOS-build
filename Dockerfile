@@ -1,7 +1,7 @@
 FROM ubuntu:jammy
 WORKDIR /root/src
 ADD https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.gz /root/src/
-ADD https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.gz /root/src/
+ADD https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.gz /root/src/
 ENV TARGET=i686-elf \
     PREFIX=/root/opt/local \
     PATH="/root/opt/local/bin:${PATH}"
@@ -15,7 +15,7 @@ RUN apt-get update && apt-get -y upgrade; \
     ../binutils-2.39/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --disable-werror; \
     make -j$(nproc) && make install; \
     cd $HOME/src && mkdir build-gcc && cd build-gcc; \
-    ../gcc-12.1.0/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --enable-languages=c,c++ --without-headers; \
+    ../gcc-12.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-multilib --disable-nls --enable-languages=c,c++ --without-headers; \
     make -j$(nproc) all-gcc; \
     make all-target-libgcc; \
     make install-gcc; \
