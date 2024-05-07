@@ -39,11 +39,3 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: hoshiyamazaki/kenos-build:alphadocker
-          
-      - name: Build and push ARM Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          platforms: linux/arm64
-          tags: hoshiyamazaki/kenos-build:alphadocker-arm
