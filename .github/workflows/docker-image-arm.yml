@@ -11,7 +11,7 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "none" ]
 
 jobs:
   push_to_registry:
